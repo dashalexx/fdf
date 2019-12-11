@@ -1,0 +1,77 @@
+cmake_minimum_required(VERSION 3.14)
+project(fdf C)
+
+set(CMAKE_C_STANDARD 11)
+
+include_directories(minilibx)
+include_directories(minilibx_macos)
+include_directories(new/libft)
+
+add_executable(fdf
+        new/libft/ft_atoi.c
+        new/libft/ft_bzero.c
+        new/libft/ft_is_negative.c
+        new/libft/ft_isalnum.c
+        new/libft/ft_isalpha.c
+        new/libft/ft_isascii.c
+        new/libft/ft_isdigit.c
+        new/libft/ft_isprint.c
+        new/libft/ft_itoa.c
+        new/libft/ft_lstadd.c
+        new/libft/ft_lstdel.c
+        new/libft/ft_lstdelone.c
+        new/libft/ft_lstiter.c
+        new/libft/ft_lstmap.c
+        new/libft/ft_lstnew.c
+        new/libft/ft_memalloc.c
+        new/libft/ft_memccpy.c
+        new/libft/ft_memchr.c
+        new/libft/ft_memcmp.c
+        new/libft/ft_memcpy.c
+        new/libft/ft_memdel.c
+        new/libft/ft_memmove.c
+        new/libft/ft_memset.c
+        new/libft/ft_print_numbers.c
+        new/libft/ft_putchar.c
+        new/libft/ft_putchar_fd.c
+        new/libft/ft_putendl.c
+        new/libft/ft_putendl_fd.c
+        new/libft/ft_putnbr.c
+        new/libft/ft_putnbr_fd.c
+        new/libft/ft_putstr.c
+        new/libft/ft_putstr_fd.c
+        new/libft/ft_sqrt.c
+        new/libft/ft_strcat.c
+        new/libft/ft_strchr.c
+        new/libft/ft_strclr.c
+        new/libft/ft_strcmp.c
+        new/libft/ft_strcpy.c
+        new/libft/ft_strdel.c
+        new/libft/ft_strdup.c
+        new/libft/ft_strequ.c
+        new/libft/ft_striter.c
+        new/libft/ft_striteri.c
+        new/libft/ft_strjoin.c
+        new/libft/ft_strlcat.c
+        new/libft/ft_strlen.c
+        new/libft/ft_strmap.c
+        new/libft/ft_strmapi.c
+        new/libft/ft_strncat.c
+        new/libft/ft_strncmp.c
+        new/libft/ft_strncpy.c
+        new/libft/ft_strnequ.c
+        new/libft/ft_strnew.c
+        new/libft/ft_strnstr.c
+        new/libft/ft_strrchr.c
+        new/libft/ft_strsplit.c
+        new/libft/ft_strstr.c
+        new/libft/ft_strsub.c
+        new/libft/ft_strtrim.c
+        new/libft/ft_swap.c
+        new/libft/ft_tolower.c
+        new/libft/ft_toupper.c
+        new/libft/get_next_line.c
+        new/libft/get_next_line.h
+        new/libft/libft.h
+        new/libft/razryad.c
+        new/new_new.c)

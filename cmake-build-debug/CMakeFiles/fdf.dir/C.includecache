@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/tquence/std/fdf/new/libft/get_next_line.h
+libft.h
+/Users/tquence/std/fdf/new/libft/libft.h
+sys/types.h
+-
+sys/stat.h
+-
+fcntl.h
+-
+stdlib.h
+-
+unistd.h
+-
+
+/Users/tquence/std/fdf/new/libft/libft.h
+string.h
+-
+get_next_line.h
+/Users/tquence/std/fdf/new/libft/get_next_line.h
+
+/Users/tquence/std/fdf/new/new_new.c
+stdlib.h
+-
+unistd.h
+-
+libft/libft.h
+/Users/tquence/std/fdf/new/libft/libft.h
+sys/types.h
+-
+sys/stat.h
+-
+fcntl.h
+-
+stdio.h
+-
+
