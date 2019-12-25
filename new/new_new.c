@@ -18,31 +18,43 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <stdio.h>
-
-//char    *space(char *str)
-//{
-//    if ((*str < 48) || (*str > 57))
-//        str++;
-//    return (str);
-//}
+#include "ft_fdf.h"
 
 int    count_symb(const int fd)
 {
 	int k;
 	char buf[2];
 	int i;
+	char str[500];
+	int i1;
 
 	i = 0;
 	k = 0;
-	ft_bzero(buf, 2);
+	ft_bzero(str, 500);
+    ft_bzero(buf, 2);
 	while (read(fd, buf, 1) != 0)
 	{
-		if (buf[i] == ' ')
-			k++;
-		else if (buf[i] == '\n')
-			break ;
-	}
-	return (k + 1);
+        if (buf[0] == '\n')
+            break ;
+        str[i] = buf[0];
+        i++;
+    }
+	i1 = i;
+	i = 0;
+    if (str[0] != ' ')
+        k++;
+	while (str[i] != 0)
+    {
+	    if ((str[i] == ' ') && ((str[i + 1] != ' ') || (str[i + 1] == '\n')))
+	        k++;
+	    i++;
+    }
+//	i = 0;
+//	while (i != i1)
+//    {
+//	    free(&str[i]);
+//    }
+	return (k);
 }
 
 int     count_str(const int fd)
@@ -56,23 +68,21 @@ int     count_str(const int fd)
 		if (buf[0] == '\n')
 			n++;
 	}
-	return (n);
+	return (n + 1);
 }
 
-char **draw1(const int fd, int n)
-{
+char **draw1(const int fd, int n) {
     char **map;
     char *line;
     int i;
 
     i = 0;
-    map = (char **)ft_memalloc(sizeof(char*) * n);
+    map = (char **) ft_memalloc(sizeof(char *) * n);
     while ((get_next_line(fd, &line)) != 0)
         map[i++] = line;
     map[i] = 0;
     return (map);
 }
-
 
 int**	karta_save(char **map, int k, int n)
 {
@@ -96,7 +106,7 @@ int**	karta_save(char **map, int k, int n)
         {
             m[i][j] = ft_atoi(&map[p0][p1]);
 //            printf("%d", m[i][j]);
-            while ((map[p0][p1] >= 48) && (map[p0][p1] <= 57))
+            while (((map[p0][p1] >= 48) && (map[p0][p1] <= 57)) || (map[p0][p1] == '-'))
                 p1++;
             j++;
         }
@@ -127,15 +137,15 @@ int main()
 
     i = 0;
     j = 0;
-    fd = open("karta", O_RDONLY);
+    fd = open("42.fdf", O_RDONLY);
     k = count_symb(fd);
     close(fd);
 //    printf("%d", k);
-    fd = open("karta", O_RDONLY);
+    fd = open("42.fdf", O_RDONLY);
     n = count_str(fd);
 //    printf("%d", n);
     close(fd);
-    fd = open("karta", O_RDONLY);
+    fd = open("42.fdf", O_RDONLY);
     c = draw1(fd, n);
     close(fd);
     tmp = karta_save(c, k, n);
